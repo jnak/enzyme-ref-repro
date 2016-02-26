@@ -3,14 +3,12 @@
   "version": "0.1.0",
   "scripts": {
     "start": "react-native start",
-    "test": "mocha --require react-native-mock/mock.js --compilers js:babel-core/register --recursive test/*.js"
+    "test": "mocha --require react-native-mock/mock.js --require setupJsdom.js --compilers js:babel-core/register --recursive test/*.js --no-colors"
   },
   "dependencies": {
-    "react-native": "^0.18.0"
-  },
-  "devDependencies": {
+    "react-native": "^0.18.0",
     "babel": "^6.3.26",
-    "babel-jest": "^6.0.1",
+    "babel-core": "^6.5.2",
     "babel-preset-airbnb": "^1.0.1",
     "chai": "^3.4.1",
     "enzyme": "^2.0.0-rc1",

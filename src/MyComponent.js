@@ -5,18 +5,24 @@ import React, {
   Text,
 } from 'react-native';
 
-export default class MyComponent extends React.Component {
+export class MyComponent extends React.Component {
   render() {
     return (
       <View>
-        <Text>I wonder if there will be any problems...</Text>
+        <Subcomponent />
+        <Subcomponent 
+          testProp={true}
+          ref={(ref) => this.second = ref}
+        />
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-
-  },
-});
+export class Subcomponent extends React.Component {
+  render() {
+    <Text>
+      Kikoo
+    </Text>
+  }
+}
