@@ -16,4 +16,10 @@ describe('<MyComponent />', () => {
     expect(wrapper.find(Subcomponent).length).to.be.equals(2);
     //console.log('kikoo', wrapper.ref('last').props());
   });
+
+  it('should return the instance', () => {
+    const wrapper = mount(<MyComponent />);
+    expect(wrapper.find(Subcomponent).instance()).to.be.instanceOf(Subcomponent);
+    //console.log('kikoo', wrapper.ref('last').props());
+  });
 });
