@@ -1,28 +1,38 @@
-import React, {
-  StyleSheet,
-  PropTypes,
-  View,
-  Text,
-} from 'react-native';
+// import React, {
+//   StyleSheet,
+//   PropTypes,
+//   View,
+//   Text,
+// } from 'react-native';
+
+import React from 'react';
 
 export class MyComponent extends React.Component {
   render() {
     return (
-      <View>
+      <div>
         <Subcomponent />
         <Subcomponent 
           testProp={true}
-          ref={(ref) => this.second = ref}
+          ref="second"
         />
-      </View>
+      </div>
     );
   }
 }
 
 export class Subcomponent extends React.Component {
+  getInitialProps() {
+    return {
+      'kikoo': true,
+    }
+  }
+
   render() {
-    <Text>
-      Kikoo
-    </Text>
+    return (
+      <span>
+        Kikoo
+      </span>
+    )
   }
 }
