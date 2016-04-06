@@ -1,28 +1,16 @@
-// import React, { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import {MyComponent, Subcomponent} from '../src/MyComponent';
 import { expect } from 'chai';
 
 describe('<MyComponent />', () => {
-  it('should deep render stuff', () => {
+  it('should find the old-style ref-ed component', () => {
     const wrapper = mount(<MyComponent />);
-    expect(wrapper.find(Subcomponent).length).to.be.equals(2);
-
-    // console.log('kakak', wrapper.ref('second').debug());
-    expect(wrapper.ref('second').prop('testProp')).to.be.true;
-    //console.log('kikoo', wrapper.ref('last').props());
+    expect(wrapper.ref('oldStyle').type()).to.equal(Subcomponent);
   });
 
-  it('should shallow render stuff', () => {
-    const wrapper = shallow(<MyComponent />);
-    expect(wrapper.find(Subcomponent).length).to.be.equals(2);
-    //console.log('kikoo', wrapper.ref('last').props());
-  });
-
-  it('should return the instance', () => {
+  it('should find the new-style ref-ed component', () => {
     const wrapper = mount(<MyComponent />);
-    expect(wrapper.find(Subcomponent).first().type()).to.equal(Subcomponent);
-    //console.log('kikoo', wrapper.ref('last').props());
+    expect(wrapper.ref('newStyle').type()).to.equal(Subcomponent);
   });
 });
